@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "46836848087",
+    "project_id": "hikotlin-f8f3d",
+    "storage_bucket": "hikotlin-f8f3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46836848087:android:607799a8dbc51e96e16792",
+        "android_client_info": {
+          "package_name": "com.example.hikotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46836848087-4550kpiaua3ef19dpjf0am1v3m7rkfg1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hikotlin",
+            "certificate_hash": "44a794cb4d26752b8d4a96d1b5221aaa90e42c78"
+          }
+        },
+        {
+          "client_id": "46836848087-006fgh1k4jhfskm56dahr0cqf6ililut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCIn1k3o-RZSKDbU8iCRmTGI1Kpk5zTbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46836848087-006fgh1k4jhfskm56dahr0cqf6ililut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
