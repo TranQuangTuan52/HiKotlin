@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    tools:context=".SignInActivity">
+    tools:context=".view.SignInActivity">
 
     <TextView
         android:id="@+id/textView_title"
@@ -86,10 +86,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/textView_forgotPassword"
+            android:text="Forgot password"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/button_signIn"
+            app:layout_constraintEnd_toEndOf="@id/button_signIn"
+             android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/textView_loginWithSocical"
             android:text="Or sign in with"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/button_signIn"
+            app:layout_constraintTop_toBottomOf="@id/textView_forgotPassword"
             android:layout_marginTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -137,8 +147,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView_resetPassword"
-            android:text="Forgot Password?"
+            android:id="@+id/textView_registerAccount"
+            android:text="Not a member, register now!"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/groupButtons_socialLogin"
             app:layout_constraintStart_toStartOf="parent"
