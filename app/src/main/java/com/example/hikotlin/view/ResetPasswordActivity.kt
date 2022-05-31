@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.hikotlin.databinding.ActivityResetPasswordBinding
+import com.example.hikotlin.model.CustomAlert
 import com.example.hikotlin.presenter.AuthPresenter
 import com.google.firebase.auth.FirebaseAuth
 
@@ -20,19 +21,15 @@ class ResetPasswordActivity : AppCompatActivity() {
         authPresenter = AuthPresenter()
         setContentView(binding.root)
 
-
-    }
-
-    private fun createShortToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        binding.buttonResetPassword.setOnClickListener{onPressResetPassword()}
     }
 
     private fun onResetPasswordSuccess(message: String) {
-        createShortToast(message)
+        CustomAlert.show(this, "Success!", message)
     }
 
     private fun onResetPasswordFailure(message: String) {
-        createShortToast(message)
+        CustomAlert.show(this, "Error!", message)
     }
 
     private fun onPressResetPassword() {

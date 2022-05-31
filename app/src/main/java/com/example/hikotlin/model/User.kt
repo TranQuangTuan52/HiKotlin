@@ -1,25 +1,29 @@
 package com.example.hikotlin.model
 
-class User (
-    var fullName: String,
-    var age: Int?,
-    var avatarUrl: String?,
-    var email: String,
-    var id: String?
-) {
+class User private constructor() {
+    var fullName: String = ""
+    var age: Int? = null
+    var avatarUrl: String? = null
+    var email: String = ""
+    var uid: String? = null
 
-    public fun setUser(
+    fun setData(
         fullName: String,
+        email: String,
         age: Int?,
         avatarUrl: String?,
-        email: String,
-        id: String?
+        uid: String?,
     ) {
         this.fullName = fullName
         this.age = age
         this.avatarUrl = avatarUrl
         this.email = email
-        this.id = id
+        this.uid = uid
     }
+
+    companion object {
+        val user = User()
+    }
+
 
 }

@@ -2,7 +2,7 @@ package com.example.hikotlin.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hikotlin.databinding.ActivityRegisterBinding
 import com.example.hikotlin.model.CustomAlert
@@ -24,11 +24,17 @@ class RegisterActivity : AppCompatActivity() {
         binding.buttonSignUp.setOnClickListener {
             createUser()
         }
+        binding.editTextConfirmPassword.setOnEditorActionListener { _, actionId, _ ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_SEND -> {
+                    createUser()
+                    true
+                }
+                else -> false
+            }
+        }
         binding.textViewSignIn.setOnClickListener { navigateToSignInScreen() }
-    }
 
-    private fun createShortToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun navigateToSignInScreen() {
@@ -37,6 +43,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun onRegisterFailure(message: String) {
+
         CustomAlert.show(this, "Error", message)
     }
 
@@ -46,12 +53,14 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun createUser() {
         val email = binding.editTextEmail.text.toString()
+        val fullName = binding.editTextFullName.text.toString()
         val password = binding.editTextPassword.text.toString()
         val confirmPassword = binding.editTextConfirmPassword.text.toString()
 
         authPresenter.signUpWithEmailPassword(
             this,
             user,
+            fullName,
             email,
             password,
             confirmPassword,
@@ -63,3 +72,4 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 }
+

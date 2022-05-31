@@ -14,6 +14,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var user: FirebaseAuth
     private lateinit var binding: ActivitySignInBinding
     private lateinit var authPresenter: AuthPresenter
+    private lateinit var loading: Loading
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,8 @@ class SignInActivity : AppCompatActivity() {
         binding.buttonSignIn.setOnClickListener { onPressSignIn() }
         binding.textViewForgotPassword.setOnClickListener{ onPressForgotPassword()}
         binding.textViewRegisterAccount.setOnClickListener { onPressRegister() }
+
+        loading = Loading(this)
     }
 
     private fun onPressRegister(){
@@ -38,14 +41,17 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun onSignInSuccess(message: String) {
+        loading.dismissLoading()
         CustomAlert.show(this, "dè dè dé de", message)
     }
 
     private fun onSignInFailure(message: String) {
+        loading.dismissLoading()
         CustomAlert.show(this, "Error", message)
     }
 
     private fun onPressSignIn() {
+        loading.startLoading()
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()
         authPresenter.signInWithEmailPassword(
